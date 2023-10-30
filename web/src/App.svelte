@@ -36,7 +36,10 @@
 
 <section class="hero">
   <div class="hero-body">
-    <p class="title">{greeting_message}</p>
+    <p class="title">
+      <Icon data={globe} />
+      {greeting_message}
+    </p>
   </div>
 </section>
 
@@ -44,14 +47,17 @@
   <div class="container">
     {#if pathname == "/"}
       <div class="content">
+        <Icon data={caretRight} />
         You are on the toplevel <code>/</code>. Try Access to other pages.
       </div>
     {:else if pathname.startsWith("/info")}
       <div class="content">
+        <Icon data={caretRight} />
         This is a <code>/info</code> page.
       </div>
     {:else}
       <div class="content">
+        <Icon data={caretRight} />
         Unknown page <code>{pathname}</code>.
       </div>
     {/if}
