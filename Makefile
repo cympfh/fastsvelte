@@ -3,7 +3,7 @@ HOST := 0.0.0.0
 PORT := 8080
 
 dev:
-	uvicorn server:app --port $(PORT) --debug
+	uvicorn server:app --host $(HOST) --port $(PORT) --reload
 
 build:
 	cd web; make build
