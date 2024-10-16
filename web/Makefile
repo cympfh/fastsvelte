@@ -1,9 +1,4 @@
-dev:
-	npm run dev
+.PHONY: build
 
 build:
-	npm i
 	npm run build
-
-test:
-	npm run check
