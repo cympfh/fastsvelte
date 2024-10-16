@@ -1,5 +1,15 @@
 <script>
+  import { onMount } from 'svelte';
   import Footer from '../components/Footer.svelte';
+
+  let greeting = '';
+  async function greet() {
+    let response = await fetch('/api/greeting');
+    let data = await response.json()
+    console.log(data);
+    console.log(JSON.stringify(data));
+    greeting = JSON.stringify(data);
+  }
 
   let name = '';
   let username = '';
@@ -18,8 +28,13 @@
     let data = await response.json();
     result = data;
   }
+
   function cancel() {
   }
+
+  onMount(() => {
+    greet();
+  });
 </script>
 
 <svelte:head>
@@ -29,7 +44,11 @@
 <section class="hero">
   <div class="hero-body">
     <p class="title">
+      <i class="fa-solid fa-globe"></i>
       FastSvelte App
+      {#if greeting}
+        - { greeting }
+      {/if}
     </p>
   </div>
 </section>

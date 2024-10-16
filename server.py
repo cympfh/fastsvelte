@@ -7,6 +7,11 @@ app = FastAPI()
 logger = logging.getLogger("uvicorn")
 
 
+@app.get("/api/greeting")
+def greeting():
+    return {"Hello": "World"}
+
+
 @app.get("/api/subscribe")
 def subscribe(name: str, username: str, email: str, checked: bool):
     if checked:
